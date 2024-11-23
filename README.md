@@ -1,10 +1,10 @@
 # Building LLMs from Scratch in Julia
 
-This repository is dedicated to translating the Python code from the book **[Building a Large Language Model (from Scratch)](https://a.co/d/8m6dP1m)** by [Sebastian Raschka](https://github.com/rasbt) into Julia. The goal is to provide a Julia-based implementation of the concepts and techniques outlined in the book.
+This repository is dedicated to translating the Python code from the book **[Build a Large Language Model (from Scratch)](https://a.co/d/8m6dP1m)** by [Sebastian Raschka](https://github.com/rasbt) into Julia. The goal is to provide a Julia-based implementation of the concepts and techniques outlined in the book.
 
 ## 📚 About the Book
 
-Sebastian Raschka's *Building a Large Language Model (from Scratch)* provides a hands-on approach to understanding the fundamental concepts behind large language models (LLMs), covering everything from tokenization to model training and inference. The book uses Python as the primary language, and this repository aims to make the same techniques accessible to Julia enthusiasts.
+Sebastian Raschka's *Build a Large Language Model (from Scratch)* provides a hands-on approach to understanding the fundamental concepts behind large language models (LLMs), covering everything from tokenization to model training and inference. The book uses Python as the primary language, and this repository aims to make the same techniques accessible to Julia enthusiasts.
 
 ## 🎯 Objectives
 
