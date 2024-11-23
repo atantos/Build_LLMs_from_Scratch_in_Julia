@@ -4,7 +4,7 @@ This repository is dedicated to translating the Python code from the book **[Bui
 
 ## 📚 About the Book
 
-Sebastian Raschka's *Build a Large Language Model (from Scratch)* provides a hands-on approach to understanding the fundamental concepts behind large language models (LLMs), covering everything from tokenization to model training and inference. The book uses Python as the primary language, and this repository aims to make the same techniques accessible to Julia enthusiasts.
+@rasbt's *Build a Large Language Model (from Scratch)* provides a hands-on approach to understanding the fundamental concepts behind large language models (LLMs), covering everything from tokenization to model training and inference. The book uses Python as the primary language, and this repository aims to make the same techniques accessible to Julia enthusiasts.
 
 ## 🎯 Objectives
 
