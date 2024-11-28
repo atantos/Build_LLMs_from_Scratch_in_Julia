@@ -121,3 +121,69 @@ for (i, col) in enumerate(eachcol(inputs))
     context_vec_2 .+= attn_weights_2[i] .* col
 end
 println("Context vector: ", context_vec_2)
+
+# 3.3.2 Computing attention weights for all input tokens
+
+using LinearAlgebra
+using Flux
+
+inputs = [0.43 0.55 0.57 0.22 0.77 0.05;
+    0.15 0.87 0.85 0.58 0.25 0.80;
+    0.89 0.66 0.64 0.33 0.10 0.55]
+
+# attn_scores = torch.empty(6, 6)
+
+# Initialize attention scores matrix
+attn_scores = zeros(size(inputs, 2), size(inputs, 2))
+
+
+# for i, x_i in enumerate(inputs):
+#     for j, x_j in enumerate(inputs):
+#         attn_scores[i, j] = torch.dot(x_i, x_j)
+# print(attn_scores)
+
+# Compute attention scores using nested loops
+for (i, _) in enumerate(eachcol(inputs))
+    for (j, _) in enumerate(eachcol(inputs))
+        attn_scores[i, j] = dot(inputs[:, i], inputs[:, j])
+    end
+end
+println("Attention scores computed using loops:")
+println(attn_scores)
+
+# attn_scores = inputs @ inputs.T
+# print(attn_scores)
+
+# Compute attention scores using matrix multiplication
+attn_scores_mmult = transpose(inputs) * inputs
+println("Attention scores computed using matrix multiplication:")
+println(attn_scores_mmult)
+
+# attn_weights = torch.softmax(attn_scores, dim=-1)
+# print(attn_weights)
+
+# Compute attention weights using Flux's softmax
+attn_weights = softmax.(eachcol(attn_scores)) |> Flux.stack
+println("Attention weights:")
+println(attn_weights)
+
+# row_2_sum = sum([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])
+# print("Row 2 sum:", row_2_sum)
+# print("All row sums:", attn_weights.sum(dim=-1))
+
+# Sum of a specific columns (example: Column 2)
+col_sum_2 = sum(attn_weights[:, 2])
+println("Column 2 sum: ", col_sum_2)
+
+# Sum of all columns
+col_sums = sum(attn_weights, dims=1)
+println("All Column sums: ")
+println(col_sums)
+
+# all_context_vecs = attn_weights @ inputs
+# print(all_context_vecs)
+
+# Compute all context vectors
+all_context_vecs = inputs * attn_weights
+println("All context vectors:")
+println(all_context_vecs)
